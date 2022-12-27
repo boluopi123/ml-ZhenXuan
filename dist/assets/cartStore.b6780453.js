@@ -1,1 +1,0 @@
-import{A as e}from"./index.e7159e74.js";import{a}from"./index.84bd4d66.js";const i=e("cartStore",{state:()=>({cartList:[]}),actions:{changeCartList(t){this.cartList=t.map(r=>(r.checked=!0,r))},getCartListAsync(){a().then(t=>{this.changeCartList(t.data||[])})}},getters:{cartNum(){return this.cartList.reduce((t,r)=>t+r.goodsCount,0)}}});export{i as u};

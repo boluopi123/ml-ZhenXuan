@@ -30,7 +30,18 @@ export function getInfoData(id) {
 export function addCart(options) {
     return http.post("/shop-cart", options)
 }
-//添加商品到购物车
+//获取购物车商品列表
 export function getCartList() {
     return http.get("/shop-cart")
+}
+//删除购物车中的商品
+export function deleteCartList(id) {
+    return http.delete("/shop-cart/" + id)
+}
+//购物车步进器
+export function putCartList(id, count) {
+    return http.put('/shop-cart/', {
+        cartItemId: id,
+        goodsCount: count
+    })
 }

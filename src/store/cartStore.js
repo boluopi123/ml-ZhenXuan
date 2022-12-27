@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getCartList } from "@/api/index.js";
+import { getCartList, deleteCartList, putCartList } from "@/api/index.js";
 export const useCart = defineStore('cartStore', {
     state: () => {
         return {
@@ -14,6 +14,7 @@ export const useCart = defineStore('cartStore', {
                 return item
             })
         },
+        //获取购物车列表数据
         getCartListAsync() {
             //发送Ajax请求，获取购物车列表数据
             getCartList().then(
@@ -22,6 +23,22 @@ export const useCart = defineStore('cartStore', {
                 }
             )
         },
+        //删除购物车列表数据
+        async deleteCartListAsync(id) {
+            let res = await deleteCartList(id)
+            if (res.resultCode == 200) {
+                //重新获取购物车列表数据
+                this.getCartListAsync()
+            }
+        },
+        //购物车步进器
+        async putCartListAsync(cartItemId, goodsCount) {
+            let res = await putCartList(cartItemId, goodsCount)
+            if (res.resultCode == 200) {
+                //重新获取购物车列表数据
+                this.getCartListAsync()
+            }
+        }
     },
     getters: {
         cartNum() {
