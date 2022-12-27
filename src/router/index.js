@@ -45,6 +45,20 @@ const asyncRoutes = [
         meta: {
             isShowNav: false // 控制的是是否展示下边的导航栏
         }
+    },
+    {
+        path: '/addressList',
+        component: () => import( /*webpackChunkName:"info" */ '../views/Address/AddressList.vue'),
+        meta: {
+            isShowNav: false // 控制的是是否展示下边的导航栏
+        }
+    },
+    {
+        path: '/AddressAddAndEdit',
+        component: () => import( /*webpackChunkName:"info" */ '../views/Address/AddressAddAndEdit.vue'),
+        meta: {
+            isShowNav: false // 控制的是是否展示下边的导航栏
+        }
     }
 ]
 const router = createRouter({

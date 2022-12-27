@@ -45,3 +45,27 @@ export function putCartList(id, count) {
         goodsCount: count
     })
 }
+// ======================= 获取地址列表
+export function getAddressList() {
+    return http.get("/address")
+}
+
+// ======================= 根据ID获取某个地址，实现数据回显
+export function getAddressDetail(id) {
+    return http.get("/address/" + id)
+}
+
+// ======================= 编辑地址
+export function updateAddress(obj) {
+    return http.put("/address", obj)
+}
+
+// ======================= 新增地址
+export function addAddress(obj) {
+    return http.post("/address", obj)
+}
+
+// ======================= 删除地址
+export function removeAddress(id) {
+    return http.delete("/address/" + id)
+}

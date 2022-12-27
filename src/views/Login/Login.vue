@@ -89,10 +89,9 @@ let onSubmit = () => {
     if (userInfo.isTitle) {
       //登录
       login(userInfo.username, userInfo.password).then((res) => {
-        console.log(res);
         if (res.resultCode == 200) {
           //本地存储用户token
-          localStorage.setItem("ml-token", res.data);
+          localStorage.setItem("mltoken", res.data);
           if (route.query.needback == 1) {
             router.back();
           } else {

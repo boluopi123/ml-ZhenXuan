@@ -17,7 +17,7 @@ let http = axios.create({
 http.interceptors.request.use(config => {
     // Do something before request is sent
     //在请求发出之前
-    config.headers.token = localStorage.getItem('ml-token')
+    config.headers.token = localStorage.getItem('mltoken')
     return config;
 }, error => {
     // Do something with request error
